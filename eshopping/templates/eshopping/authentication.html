@@ -1,0 +1,79 @@
+<html lang="en">
+    <head>
+        {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+    <div id="page-wrapper">
+        <div id="content-wrapper">
+            <div id="sticky-content">
+                {% include 'eshopping/navbar.html' %}
+
+                <div id="categories-section" >
+                    <ul>
+                        <li>All Categories</li>
+                        <li>Samsung</li>
+                        <li>Oppo</li>
+                        <li>Tecno</li>
+                        <li>Laptops</li>
+                        <li>Laptop Accessories</li>
+                    </ul>
+                </div>
+
+                <div class="w3-card-2" id="authent-form-section">
+
+                    <div id="login_form"  class="w3-border" >
+                        <div style="text-decoration: underline;" class="w3panel w3-center w3-large">Login Form</div>
+                     <form action="" method="POST" >
+                         {% csrf_token %}
+                         <div class="w3-panel w3-small w3-center w3-black status_bar"></div>
+                      <label for="username">Username</label>
+                      <input  required class="w3-input w3-border w3-margin-bottom"  name="username" id="username">
+                      <label for="password">Password</label>
+                      <input required class="w3-input w3-border" type="password" name="password" id="password">
+                      <button class="authenticatebtn w3-round-large w3-margin-bottom w3-btn w3-black w3-text-white">Login</button>
+
+                          {{form.errors}}
+                         {% for message in messages %}
+                            <p>{{message}}</p>
+                         {% endfor%}
+
+                      <div> <a href="#"  id="forgot-password-instead" class="w3-btn " style="text-decoration: underline;">Forgot Password ?</button> </a></div>
+
+                    </form>
+
+                     <div class="w3-margin-top" id="signup-instead"><a class="w3-btn" style="text-decoration: underline;" href="{% url 'signup' %}">Create an Account</a></div>
+                     <button class="w3-btn w3-hover-black w3-hover-text-blue w3-round-large w3-center w3-blue social-login">Login with Google Instead </button>
+                    </div>
+
+                    <div id="sign_up_form" style="display:none;"  class="w3-border">
+                        <button class="w3-btn w3-center w3-blue w3-round-large social-login">Sign Up with Google Instead </button>
+
+
+                 <div id="forgot-password" style="display: none;" class="w3-border ">
+                     <h4 class="w3-center" style="text-decoration: underline;">Forgot Password</h4>
+                 <form action="#">
+                    <div class="w3-panel w3-black" id="processStatus"></div>
+                    <form action="#">
+                        <label for="recover_email" class="w3-small">Input Email associated with your account</label>
+                      <input required type="email" id="recovery_email" class="w3-input w3-border">
+                      <button class="w3-btn w3-center w3-black w3-round-large">Submit</button>
+                    </form>
+                 </form>
+                 </div>
+                </div>
+            </div>
+            </div>
+             {% include 'eshopping/footer.html' %}
+        </div>
+    </div>
+    </body>
+
+
+
+
+
+    {% endblock %}
+
+</html>

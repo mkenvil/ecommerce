@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <title>Product Description</title>
+     {% extends 'eshopping/index.html' %}
+        {% load static %}
+</head>
+{% block content %}
+<body>
+    <div id="page-wrapper">
+        <div id="content-wrapper">
+            <div id="sticky-content">
+                 {% include 'eshopping/navbar.html' %}
+                <div class="w3-panel w3-margin-left" style="text-decoration: underline;font-weight: bold;"><a href="{% url 'home' %}">Go Back</a></div>
+               <div class="w3-card-2 w3-margin-top" id="view-spes-prod">
+                   {%for message in messages%}
+                   <p>
+                       {{message}}
+                   </p>
+                   {%endfor%}
+                   <h4 class="w3-center" style="text-decoration: underline;">Product Description</h4>
+                   <div class="w3-row" style="width:80%;margin-left: 10%;" >
+                       {% for detail in detail %}
+                    <div class="product-images w3-col s12 l2">
+                        <img class="image-prev" src="{% static '{{detail.view_image.url}}' %}" alt="Phantom 9">
+                        <img class="image-prev" src="{% static '{{detail.view_image.url}}' %}" alt="Phantom 9">
+                        <img class="image-prev" src="{% static '{{detail.view_image.url}}' %}" alt="Phantom 9">
+                    </div>
+                    <div  class="w3-col l10 w3-wheat" id="magnify-prod-image">
+                        <img id='preview-magnified' src="{% static '{{detail.view_image.url}}' %}" alt="A50">
+
+                    </div>
+                   </div>
+
+                   <div class="product-description w3-border">
+                       <span class="prod_title w3-xlarge">{{detail.product_name}}</span><br>
+                       <span class="product_price w3-large"> {{detail.price}}</span><br>
+
+                       <span class="selling_shop w3-small">Sold by Samsung</span><br>
+                       <div class="prod_act w3-margin-top" >
+
+                        <a href="{{detail.get_add_to_cart_url}}">
+                           <button class="w3-border w3-hover-green w3-hover-text-black  w3-btn w3-border-green ">Add To Cart <i class="fas fa-shopping-cart  w3-text-green"></i> </button>
+                        </a>
+
+                          <a href="{{detail.get_remove_from_cart_url}}">
+                           <button class="w3-border w3-hover-green w3-hover-text-black  w3-btn w3-border-green ">Remove From Cart <i class="fas fa-shopping-cart  w3-text-green"></i> </button>
+                        </a>
+                           <i class="fas w3-xlarge  w3-margin-left w3-center fa-bookmark"></i>
+                        </div>
+                       <div class="shipping_desc">
+                          <h4 style="text-decoration: underline;">Shipping Details  <i class="fas w3-margin-left fa-truck"></i></h4>
+
+                           <p>{{detail.shipping_details}}</p>
+
+                       </div>
+                       <div class="product-desc">
+                        <h4 style="text-decoration: underline;">Product Description</h4>
+                        <p>
+                            {{detail.description}}
+                        </p>
+
+                       </div>
+                       {% endfor %}
+
+                   </div>
+                        {% include 'eshopping/footer.html' %}
+               </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+
+
+
+</html>

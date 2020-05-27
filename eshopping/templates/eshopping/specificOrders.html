@@ -1,0 +1,67 @@
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+       {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+              <div id="sticky-content">
+                {% include 'eshopping/navbar.html' %}
+                  <div class="w3-card-4 " id='view-spec-ord' >
+               <div class="w3-margin-bottom w3-large" style="text-decoration: underline;font-weight: bolder;" ><i class="fas fa-arrow-left w3-margin-right w3-margin-left"></i> Back to Orders   </div>
+               <div class="w3-row w3-border w3-border-grey">
+                 <div class="w3-col s6 l4 order-title">Order ID</div>
+                 <div class="w3-col s6 l8 order-det">6ty4eh6s</div>
+               </div>
+               <div class="w3-row w3-border w3-border-grey" >
+                <div class="w3-col s6 l4 order-title">Payment Status</div>
+                <div class="w3-col s6 l8 order-det">Paid</div>
+              </div>
+
+              <div class="w3-row w3-border w3-border-grey">
+                <div class="w3-col s6 l4 order-title">Order Description</div>
+                <div class="w3-col s6  l8 order-det">Samsung Xjsbdjnmdkj</div>
+              </div>
+              <div class="w3-row w3-border w3-border-grey">
+                <div class="w3-col s6 l4 order-title">Order Quantity</div>
+                <div class="w3-col s6 l8 order-det">1</div>
+              </div>
+              <div class="w3-row w3-border w3-border-grey">
+                <div class="w3-col l4 s6 order-title">Order Price(Inc Shipment)</div>
+                <div class="w3-col l8 s6 order-det">Kes 102,100</div>
+              </div>
+              <div class="w3-row w3-border w3-border-grey">
+                <div class="w3-col l4 s6 order-title">Order Date</div>
+                <div class="w3-col l8 s6 order-det">01-04-2020</div>
+              </div>
+
+              <div class="w3-row w3-border w3-border-grey">
+                <div class="w3-col l4 s6 order-title">Expected Delivery</div>
+                <div class="w3-col l8 s6 order-det">08-04-2020</div>
+              </div>
+              <div class="w3-row w3-border w3-border-grey">
+                <div class="w3-col s6 l4 order-title">Order Status</div>
+                <div class="w3-col s6 l8 order-det">Completed</div>
+              </div>
+               <div class="order-action w3-panel w3-center">
+                   <button class="w3-btn w3-red w3-center">Cancel Order</button>
+               </div>
+               <div class="order-action w3-panel w3-center">
+                <button class="w3-btn w3-green w3-center">After Sale</button>
+                </div>
+                <div class="order-action w3-panel w3-center">
+                    <button class="w3-btn w3-yellow w3-center">Return Product</button>
+                </div>
+                  </div>
+              </div>
+                {% include 'eshopping/footer.html' %}
+            </div>
+        </div>
+    </body>
+    {% endblock %}
+
+
+    </html>

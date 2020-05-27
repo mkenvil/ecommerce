@@ -1,0 +1,44 @@
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        {% extends 'eshopping/index.html' %}
+        {% load static %}
+    </head>
+    {% block content %}
+    <body>
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    {% include 'eshopping/navbar.html' %}
+
+                    <div class="w3-cad-2" id="coupons-center">
+                    <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-large w3-margin-top ">Settings</div>
+                    <!-- <div class="w3-panel w3-margin-top 3-padding-24">Nothing available Yet</div> -->
+                   <div class="w3-padding-24">
+                       <div style="text-decoration: underline;font-weight: bold;" class="w3-panel w3-center">Coupons Center</div>
+                    <div class="w3-card-2 w3-center coupon-card ">
+                        <img src="{% static '/images/home-icon.jpg' %}" alt="250Coupon">
+                        <button class="w3-btn w3-center w3-orange w3-margin-bottom w3-margin-top ">Redeem Coupon</button>
+                    </div>
+                    <div class="w3-card-2 w3-center coupon-card ">
+                        <img src="{% static '/images/home-icon.jpg' %}" alt="250Coupon">
+                        <button class="w3-btn w3-center w3-orange w3-margin-bottom w3-margin-top ">Redeem Coupon</button>
+                    </div>
+                    <div class="w3-card-2 w3-center coupon-card ">
+                        <img src="{% static '/images/home-icon.jpg' %}" alt="250Coupon">
+                        <button class="w3-btn w3-center w3-orange w3-margin-top w3-margin-bottom ">Redeem Coupon</button>
+                    </div>
+                   </div>
+
+                  </div>
+
+                </div>
+                {% include 'eshopping/footer.html' %}
+                </div>
+         </div>
+
+    </body>
+    {% endblock %}
+
+
+    </html>

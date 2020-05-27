@@ -1,0 +1,53 @@
+{% load static %}
+
+    <div id="nav-section" class="w3-row">
+                    <div id="home-icon" class="w3-col s4 m4 l4">
+                        <a href="{% url 'home' %}">
+                             <img src="{% static '/images/home-icon.jpg' %}" class="w3-round-large" alt="Home Icon">
+                        </a>
+
+                    </div>
+                    <div id="search-section" class="w3-col s8 m8 l4 ">
+                        <form action="#" method="get">
+                            <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
+                        </form>
+                    </div>
+                    <div id="account-actions" class="l4 w3-col w3-round-xlarge">
+                        <ul id="account-actions-ul">
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                <ul><li>
+                                    <a href="{% url 'order_summary' %}">Cart </a>
+                                </li></ul>
+
+                            </li>
+
+                            <li class="nav-icon">    <i class="fas fa-user"></i>
+                            <ul><li>
+                                <a href="{% url 'dashboard' %}">Account</a>
+                            </li></ul>
+
+                            </li>
+                            <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
+                                <ul><li>
+                                  <a href="{% url 'logout' %}">Logout</a>
+                                </li></ul>
+
+                            </li>
+                            {% else %}
+                            <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
+                                <ul><li>
+                                  <a href="{% url 'authenticate' %}">Login</a>
+                                </li></ul>
+                            {% endif %}
+
+
+
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+

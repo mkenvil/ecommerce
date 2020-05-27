@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+         {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    {% include 'eshopping/navbar.html' %}
+
+                        <form method="POST" action="" class="w3-card-2 " style="" id="add-address">
+                            {%csrf_token%}
+
+                       <div class="w3-panel w3-center w3-margin-bottom w3-blue">Add Address Form</div>
+                       <div class="w3-panel w3-black w3-center"></div>
+
+                       <label id="recipientLabel" for="recipient" class="w3-small" style="font-weight: bold;">Pick up Name</label>
+                            {{form.Addressname}}
+
+                       <label id='poBOXLabel' for="P.O BOX" class="w3-small" style="font-weight: bold;" >P.O BOX</label>
+                            {{form.office_box}}
+
+                       <label id='locationLabel' for="location" class="w3-small" style="font-weight: bold;" >Pick up Location</label>
+                            {{form.location}}
+
+                       <label id='phoneLabel' for="phone" class="w3-small" style="font-weight: bold;">Phone</label>
+                            {{form.telephone}}
+
+                            <button type="submit" class="w3-btn w3-black w3-round-large">Submit</button>
+                   </form>
+
+
+                </div>
+                {% include 'eshopping/footer.html' %}
+            </div>
+        </div>
+    </body>
+
+
+
+    {% endblock %}
+
+    </html>

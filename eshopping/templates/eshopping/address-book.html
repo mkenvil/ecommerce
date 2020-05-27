@@ -1,0 +1,99 @@
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+         {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    {% include 'eshopping/navbar.html' %}
+
+                    <div class="w3-cad-2">
+                    <div id="address-settings" class="w3-border">
+                        <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-large w3-margin-top w3-margin-bottom">Your Address</div>
+                        <div class="address-loc w3-card-2  ">
+
+                            {% for show_address in show_address%}
+                            <p>
+                               {{ show_address.Addressname }} <br>
+                             {{ show_address.office_box }} <br>
+                             {{ show_address.location }} <br>
+                            {{ show_address.telephone }} . <br>
+                            </p>
+
+                             <div class="actbtn w3-btn w3-border w3-pale-green w3-text-black w3-border">Default Selected</div>
+                            <a href="{% url 'delete_address' %}">
+                             <div class="actbtn w3-btn w3-border w3-text-red w3-border">Delete Address</div>
+                                </a>
+
+                            {% endfor %}
+
+
+
+                        </div>
+                        <div class="address-loc w3-card-2 w3-margin-top w3-margin-top">
+                            <p>
+                             Mitchelle Wanjiru <br>
+                             P.O BOX 456 <br>
+                             NAIROBI <br>
+                             254729093444. <br>
+                            </p>
+
+                            <div class="actbtn w3-btn w3-border w3-text-green ">Select as Default</div>
+                             <div class="actbtn w3-btn w3-border w3-text-red ">Delete Address</div>
+
+                         </div>
+                     <div class="address-loc w3-card-2 w3-margin-top w3-margin-top">
+                         <p>
+                             JOE DOE <br>
+                             P.O BOX 123 <br>
+                             KAKAMEGA <br>
+                             254724144002. <br>
+                         </p>
+
+                         <div class="actbtn w3-btn w3-border w3-text-green ">Select as Default</div>
+                            <div class="actbtn w3-btn w3-border w3-text-red ">Delete Address</div>
+
+                     </div>
+
+                  <button id="add-new-address" class="w3-btn w3-margin-bottom w3-round-large add-address-btn w3-black w3-text-green w3-margin-top w3-center">
+                      <a href="{% url 'add_address'%}">
+                          Add Address
+                      </a>
+                  </button>
+
+
+                    </div>
+
+                        <form action="POST" class="w3-card-2 " style="display: none;" id="add-address">
+
+                       <div class="w3-panel w3-center w3-margin-bottom w3-blue">Add Address Form</div>
+                       <div class="w3-panel w3-black w3-center"></div>
+
+                       <label id="recipientLabel" for="recipient" class="w3-small" style="font-weight: bold;">Reciever Name</label>
+                       <input required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="recipient" id="recipient">
+                       <label id='poBOXLabel' for="P.O BOX" class="w3-small" style="font-weight: bold;" >P.O BOX</label>
+
+                       <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="poBOX" id="poBOX">
+                       <label id='locationLabel' for="location" class="w3-small" style="font-weight: bold;" >Location</label>
+                       <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="location" id="location">
+                       <label id='phoneLabel' for="phone" class="w3-small" style="font-weight: bold;">Phone</label>
+                       <input maxlength="13" minlength="13"  required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="phone" id="phone">
+                       <button type="submit" class="w3-btn w3-black w3-round-large">Submit</button>
+                   </form>
+
+                  </div>
+                </div>
+                {% include 'eshopping/footer.html' %}
+            </div>
+        </div>
+    </body>
+
+
+
+    {% endblock %}
+
+    </html>

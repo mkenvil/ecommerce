@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    {% extends 'eshopping/index.html' %}
+</head>
+{% block content %}
+<body>
+
+    <div id="page-wrapper">
+        <div id="content-wrapper">
+            <div id="sticky-content">
+              {% include 'eshopping/navbar.html' %}
+
+                <div id="categories-section" >
+                    <ul>
+                        <li>All Categories</li>
+                        <li>Samsung</li>
+                        <li>Oppo</li>
+                        <li>Tecno</li>
+                        <li>Laptops</li>
+                        <li>Laptop Accessories</li>
+                    </ul>
+                </div>
+
+                <div class="w3-card-2" id="authent-form-section">
+
+                    <div id="account-rec_form"  class="w3-border " >
+                        <h3 style="text-decoration: underline;font-weight: bold;" class="w3-panel w3-center w3-large">Account Recovery</h3>
+                     <form action="#" id='recovered_account' method="post" >
+                         <div class="w3-panel w3-small w3-center w3-black status_bar"></div>
+                      <label for="newPassword" style="font-weight: bold;" class="w3-small" id='newPasswordLabel'>New Password</label>
+                      <input  required class="w3-input w3-border w3-margin-bottom"  type="password" name="newpassword" id="newpassword">
+                      <label for="confpassword" style="font-weight: bold;" class="w3-small" id='confpasswordLabel'>Confirm New Password</label>
+                      <input required class="w3-input w3-border" type="password" name="confpassword" id="confpassword">
+                      <button class="authenticatebtn w3-round-large w3-margin-bottom w3-btn w3-black w3-text-white">Update</button>
+                    </form>
+
+                  </div>
+
+                </div>
+            </div>
+            {% include 'eshopping/footer.html' %}
+        </div>
+    </div>/
+</body>
+
+{% endblock %}
+
+</html>

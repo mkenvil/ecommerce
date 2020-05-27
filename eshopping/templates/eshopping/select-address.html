@@ -1,0 +1,71 @@
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                   {% include 'eshopping/navbar.html' %}
+                    <div class="w3-card-4" style="padding-bottom: 20px;" id="select-address">
+                  <div class="w3-panel w3-large" style="font-weight: bold;text-decoration: underline;color:darkolivegreen">Select Preffered Delivery Address</div>
+
+                  <!-- <div id="home-office-address">
+                     <div class=" w3-display-container w3-border address-item">
+                        <p >ERICK NDERITU  <br>
+                            P.O BOX 123,<br>
+                           KAKAMEGA,<br>
+                           254727895935  </p>
+                           <button class="w3-btn w3-yellow w3-center w3-margin-bottom w3-round-xlarge w3-border w3-border-orange select-del-address  w3-text-black">Use this Address</button>
+                     </div>
+                     <div class=" w3-display-container w3-margin-top w3-border address-item">
+                        <p >ERICK NDERITU  <br>
+                            P.O BOX 123,<br>
+                           KAKAMEGA,<br>
+                           254727895935  </p>
+                           <button class="w3-btn w3-yellow  w3-center w3-margin-bottom w3-round-xlarge w3-border w3-border-orange select-del-address w3-text-black">Use this Address</button>
+                     </div>
+                     <button id="add-address-btn" class="w3-btn w3-black w3-center w3-round-large">Add another Address</button>
+                  </div> -->
+
+                  <div id="pickup-station" >
+                      <form action="#">
+                        <div class="w3-center w3-panel w3-center w3-large" style="font-weight: bold;text-decoration: overline;">Select a Pickup Station Below</div>
+                        <label class="w3-input w3-center w3-margin-top" style="font-weight: bold;" for="select-county">Select Country</label>
+                        <select class="w3-input" name="selct-county" id="select-county">
+                            <option value="--deafult--">--Select County --</option>
+                            <option value="--Nairobi--">Nairobi</option>
+                            <option value="--Nairobi--">Kisumu</option>
+                            <option value="--Nairobi--">Eldoret</option>
+                        </select>
+                        <label class="w3-input w3-center w3-margin-top" style="font-weight: bold;" for="select-area">Select Area</label>
+                        <select class="w3-input w3-center" name="select-area" id="select-area">
+                            <option value="--deafult--">--Select Area --</option>
+                            <option value="--Nairobi--">Embakasi</option>
+                            <option value="--Nairobi--">CBD</option>
+                            <option value="--Nairobi--">Amalemba</option>
+                        </select>
+
+                        <label class="w3-input w3-center w3-margin-top" style="font-weight: bold;" for="station">Select Station</label>
+                        <select class='w3-input w3-center' name="station" id="station">
+                            <option value="--deafult--">--Select Station --</option>
+                            <option value="--Nairobi--">Nairobi</option>
+                            <option value="--Nairobi--">Kisumu</option>
+                            <option value="--Nairobi--">Eldoret</option>
+                        </select>
+                         <p style="font-weight: bold;" class="price-display w3-margin-left">Shipment Amount :</p>
+                        <button id="save-address" class="w3-btn w3-black w3-round-xlarge w3-margin-top ">Proceed with this Address</button>
+                      </form>
+                  </div>
+                         {% include 'eshopping/footer.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    {% endblock %}
+
+        </html>

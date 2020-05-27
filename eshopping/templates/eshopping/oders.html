@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        <title>My Orders</title>
+        {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                 <div id="sticky-content">
+                {% include 'eshopping/navbar.html' %}
+
+                     <div class="w3-card-4 " id="orders-section" >
+                   <div  style="text-decoration: underline;font-weight: bold;margin-top:20px" class="w3-panel w3-large">My Orders</div>
+                  <div class="w3-row filter_by_select" >
+                      <div class="w3-col w3-button order-title s4">Completed <i class="fas fa-arrow-down"></i> </div>
+                      <div class="w3-col w3-button order-title s4">Pending  <i class="fas fa-arrow-down"></i> </div>
+                      <div class="w3-col w3-button  order-title s4">All <i class="fas fa-arrow-down"></i> </div>
+                  </div>
+                  <div class="w3-row filtered-orders-title w3-grey w3-margin-top">
+                    <div class="w3-col w3-border-right order-stat-title s2">Order ID </div>
+                    <div class="w3-col w3-border-right order-stat-title s4">Description</div>
+                    <div class="w3-col w3-border-right order-stat-title s2">Status</div>
+                    <div class="w3-col  w3-border-right order-stat-title s2">Order Date</div>
+                    <div class="w3-col  order-stat-title s2">Expected Delivery </div>
+                  </div>
+
+                  <div class="w3-row filtered-orders-details w3-padding-top w3-border-bottom">
+                    <div class="w3-col  w3-border-right order-det-item s2" >A126B10</div>
+                    <div class="w3-col w3-border-right order-det-item s4">Samsung Galaxy S9</div>
+                    <div class="w3-col w3-border-right order-det-item s2">Pending</div>
+                    <div class="w3-col   w3-border-right order-det-item s2">12-04-2020</div>
+                    <div class="w3-col  order-det-item s2">18-04-2020 </div>
+                  </div>
+                  <div class="w3-row filtered-orders-details w3-padding-top w3-border-bottom">
+                    <div class="w3-col  w3-border-right order-det-item s2" >A126B10</div>
+                    <div class="w3-col w3-border-right order-det-item s4">Samsung Galaxy S9</div>
+                    <div class="w3-col w3-border-right order-det-item s2">Pending</div>
+                    <div class="w3-col   w3-border-right order-det-item s2">12-04-2020</div>
+                    <div class="w3-col  order-det-item s2">18-04-2020 </div>
+                  </div>
+                  <div class="w3-row filtered-orders-details w3-padding-top w3-border-bottom">
+                    <div class="w3-col  w3-border-right order-det-item s2" >A126B10</div>
+                    <div class="w3-col w3-border-right order-det-item s4">Samsung Galaxy S9</div>
+                    <div class="w3-col w3-border-right order-det-item s2">Pending</div>
+                    <div class="w3-col   w3-border-right order-det-item s2">12-04-2020</div>
+                    <div class="w3-col  order-det-item s2">18-04-2020 </div>
+                  </div>
+                     </div>
+
+                </div>
+                 {% include 'eshopping/footer.html' %}
+            </div>
+        </div>
+    </body>
+    {% endblock %}
+
+    </html>

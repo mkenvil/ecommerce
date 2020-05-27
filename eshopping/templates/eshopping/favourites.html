@@ -1,0 +1,68 @@
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        {% extends 'eshopping/index.html' %}
+        {% load static %}
+    </head>
+    {% block content %}
+    <body>
+
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    {% include 'eshopping/navbar.html' %}
+
+                    <div class="w3-cad-2" id="myfav">
+                    <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-large w3-margin-top w3-margin-bottom">Settings</div>
+
+                    <div class="cart-section w3-margin-top">
+                        <div class="w3-margin-left" style="text-decoration: underline;">My Favourites</div>
+                    <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
+
+                        <div class="w3-row w3-card-2 w3-margin-top  w3-padding-24 w3-center">
+                            {% for favorites in favorites %}
+                            <div class="w3-col s4 w3-center l4 cart-item-desc">
+                                <img src="{% static 'favorites.favorite_item.display_image' %}" alt="s2"><br>
+                                <span class="cart-item-title w3-small">{{favorites.favorite_item.product_name}}</span>
+                            </div>
+                            <div class="w3-col s4 l4 w3-text-green cart-item-desc">
+                                <a href="{{favorites.favorite_item.get_add_to_cart_url}}">
+                                     <span>Buy Now</span><br>
+                                </a>
+                               <i class="fas fa-shopping-cart"></i>
+                           </div>
+                           <div class="w3-col s4 l4 cart-item-desc">
+                               <a href="{{favorites.favorite_item.get_delete_from_favourite_url}}">
+                                   <span>Delete</span><br>
+                               </a>
+                             <i class="fas delete-icon fa-trash w3-center"></i>
+                           </div>
+                            {% endfor %}
+                        </div>
+                        <div class="w3-row w3-card-2 w3-margin-top  w3-padding-24 w3-center">
+
+                            <div class="w3-col s4 w3-center l4 cart-item-desc">
+                                <img src="{% static '/images/Samsung/S2.jpg' %}" alt="s2"><br>
+                                <span class="cart-item-title w3-small">Samsung s9 dual sim 2020</span>
+                            </div>
+                            <div class="w3-col s4 l4 w3-text-green  cart-item-desc">
+                                <span>Buy Now</span><br>
+                               <i class="fas fa-shopping-cart"></i>
+                           </div>
+                           <div class="w3-col s4 l4 cart-item-desc">
+                               <span>Delete</span><br>
+                             <i class="fas delete-icon fa-trash w3-center"></i>
+                           </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                {% include 'eshopping/footer.html' %}
+            </div>
+        </div>
+    </body>
+
+    {% endblock %}
+
+    </html>

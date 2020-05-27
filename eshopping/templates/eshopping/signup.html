@@ -1,0 +1,65 @@
+<html lang="en">
+    <head>
+        {% extends 'eshopping/index.html' %}
+    </head>
+    {% block content %}
+    <body>
+
+    <div id="page-wrapper">
+        <div id="content-wrapper">
+            <div id="sticky-content">
+                {% include 'eshopping/navbar.html' %}
+                     <form action="" class="w3-border" method="POST"  id="signupForm">
+                         {%csrf_token%}
+                    <div class=" w3-center w3-large" style="text-decoration: underline;">SignUp Form</div>
+                    <div class="w3-panel w3-small w3-center w3-black status_bar"></div>
+                   <label id="reg_name_label" style="font-weight: bold;" class="w3-small" for="fullname">FullName</label>
+                         <br>
+                          {{form.username}}
+                          <br> <br>
+
+                   <label id='reg_email_label'  style="font-weight: bold;"  class="w3-small" for="email">Email</label>
+                         <br>
+                   {{form.email}}
+                         <br><br>
+
+                   <label id="reg_pass_label"  style="font-weight: bold;"  class="w3-small" for="reg_password">Password</label>
+                         <br>
+                   {{form.password1}}
+                         <br><br>
+
+                   <label id='reg_pass_conf_label'  style="font-weight: bold;"  class="w3-small" for="confirm_password">Confirm Password</label>
+                     <br>
+                   {{form.password2}}
+                         <br><br>
+
+                   <button class="authenticatebtn w3-round-large w3-margin-bottom w3-btn w3-black w3-text-white">Sign Up</button>
+                         {{form.errors}}
+                         {% for message in messages %}
+                            <p>{{message}}</p>
+                         {% endfor%}
+
+                  </form>
+
+                  <div class="w3-margin-top" id="login-instead"><a href="{% url 'authenticate' %}" class="w3-btn" style="text-decoration: underline;">Login instead</a></div>
+               </div>
+
+                 <div id="forgot-password" style="display: none;" class="w3-border ">
+                     <h4 class="w3-center" style="text-decoration: underline;">Forgot Password</h4>
+                 <form action="#">
+                    <div class="w3-panel w3-black" id="processStatus"></div>
+                    <form action="#">
+                        <label for="recover_email" class="w3-small">Input Email associated with your account</label>
+                      <input required type="email" id="recovery_email" class="w3-input w3-border">
+                      <button class="w3-btn w3-center w3-black w3-round-large">Submit</button>
+                    </form>
+                 </form>
+                 </div>
+             {% include 'eshopping/footer.html' %}
+                </div>
+            </div>
+    </body>
+
+    {% endblock %}
+
+</html>

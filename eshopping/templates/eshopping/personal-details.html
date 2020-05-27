@@ -1,0 +1,93 @@
+<html lang="en">
+    <head>
+        <title>personal details</title>
+        {% extends 'eshopping/index.html' %}
+    </head>
+    <body>
+         {% block content %}
+         <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                   {% include 'eshopping/navbar.html' %}
+                    <div style="text-decoration: underline;font-weight: bold;" class="w3-large w3-margin-left w3-margin-top w3-margin-bottom">Settings</div>
+                      <div style="text-decoration: underline;" class="w3-panel">Personal Details</div>
+               <div id="pers-det" class="w3-card-2">
+                      <div id="personalDetails">
+                          <form action="" method="POST" enctype="multipart/form-data">
+                              {%csrf_token%}
+                        <div class="w3-row" >
+                            <div class="w3-col s8 l6">
+                                <input id='currentName' disabled class="w3-input w3-border w3-margin-top w3-margin-bottom" value="Customer Name" type="text" name="names" id="names">
+
+                                       {{form.customer_name}}
+                                <br>
+                            </div>
+
+                            <button  id="modifyName" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-text-blue w3-col w3-small l2 s2"><i class="fas fa-pen"></i>Edit</button>
+                            <button id="cancelNameMod" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-hover-pale-red w3-text-red w3-col l2  w3-center w3-small  s2">Cancel</button>
+
+                        </div>
+
+                          <div class="w3-row" >
+                            <div class="w3-col s8 l6">
+                              <input  id="currentPhone" maxlength="13" minlength="13" disabled class="w3-input w3-border " value="+Phone Number" type="tel" name="phoneNo" id="phoneNo">
+                                        <br>
+                                {{form.phone}}
+
+                            </div>
+
+                            <button  id="modifyName" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-text-blue w3-col w3-small l2 s2"><i class="fas fa-pen"></i>Edit</button>
+                            <button id="cancelNameMod" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-hover-pale-red w3-text-red w3-col l2  w3-center w3-small  s2">Cancel</button>
+                        </div>
+
+                          <div class="w3-row" >
+                            <div class="w3-col s8 l6">
+                                <input id='currentEmail' disabled class="w3-input w3-border w3-margin-top w3-margin-bottom" value="Email" type="email" name="email" id="email">
+
+                                {{form.email}}
+
+                            </div>
+
+                            <button  id="modifyName" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-text-blue w3-col w3-small l2 s2"><i class="fas fa-pen"></i>Edit</button>
+                            <button id="cancelNameMod" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-hover-pale-red w3-text-red w3-col l2  w3-center w3-small  s2">Cancel</button>
+                        </div>
+                              <div class="w3-row" >
+                            <div class="w3-col s8 l6">
+                                <input id='currentPic' disabled class="w3-input w3-border w3-margin-top w3-margin-bottom" value="ProfilePic" type="image" name="profilepic" id="profilepic">
+
+                                {{form.profile_pic}}
+
+                            </div>
+
+                            <button  id="modifyName" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-text-blue w3-col w3-small l2 s2"><i class="fas fa-pen"></i>Edit</button>
+                            <button id="cancelNameMod" style="font-weight: bold;" class="w3-btn l3 w3-margin-top w3-hover-pale-red w3-text-red w3-col l2  w3-center w3-small  s2">Cancel</button>
+
+                       <button id="triggerPasswordUpdate" class="w3-center w3-btn w3-black w3-text-yellow">Password Management</button>
+                         </form>
+
+                    </div>
+
+                    <form class="w3-margin-top " style="display: none;" id="updatePassword" method="POST">
+                        <div class="w3-center w3-margin-bottom" style="font-weight: bold;text-decoration: underline;">Update Password</div>
+                        <label class="w3-small" id="current_passwordLabel" style="font-weight: bold;" for="current_password">Current Password</label>
+                        <input type="password" class="w3-input w3-center w3-border w3-margin-bottom" name="current_password" id="current_password">
+
+                        <label class="w3-small" id='new_passwordLabel' style="font-weight: bold;" for="new_password">New Password</label>
+                        <input type="password" class="w3-input w3-center w3-border w3-margin-bottom" name="new_password" id="new_password">
+
+                        <label class="w3-small" id='confirm_new_passwordLabel' style="font-weight: bold;" for="confirm_new_password">Confirm New Password</label>
+                        <input type="password" class="w3-input w3-center w3-border w3-margin-bottom" name="confirm_new_password" id="confirm_new_password">
+
+                        <button class="w3-btn w3-center w3-black w3-text-green w3-margin-bottom ">Update Password</button>
+                    </form>
+
+            </div>
+                    {% include 'eshopping/footer.html' %}
+
+            </div>
+        </div>
+      </div>
+    </body>
+
+         {% endblock %}
+    </html>

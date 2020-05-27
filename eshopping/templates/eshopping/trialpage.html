@@ -1,0 +1,91 @@
+<html>
+<head>
+
+</head>
+<body>
+{% block content %}
+    <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    {% include 'eshopping/navbar.html' %}
+
+                <div class="w3-card-2" id="checkout-sect">
+                    <div class="w3-panel w3-center w3-large" style="text-decoration: underline;font-size: 2em;">Checkout</div>
+
+                        <div class="progress-section  w3-row w3-center w3-text-black w3-border-bottom">
+
+                            <div class="cart-confirm  progress-item  w3-col s4 l4 "  >
+                                <div id="cart_itm" class="w3-border">
+                                    Cart</i> <br><i  class="fas fa-shopping-cart" ></i>
+                                </div>
+
+                            </div>
+
+                            <div class="address-section  progress-item w3-col s4 l4"  >
+                                <div id="addr_itm" class="w3-border" >
+                                    Address <br> <i class="fas fa-map-marker"  ></i>
+                                </div>
+                            </div>
+                            <div  class="payment-method   progress-item w3-col s4 l4">
+                                <div id="paym_itm" class="w3-border">
+                                    Payment<br> <i class="fas fa-money-bill-alt" ></i>
+                                </div>
+
+                            </div>
+                     </div>
+
+                      <!-- address  -->
+                        <div id="delivery-address" style="display: none;" class="address-select w3-card w3-border-right w3-border-left w3-border-bottom w3-border-black">
+                        <div class="w3-panel w3-border w3-center">Delivery Address</div>
+
+
+                        <div id="primary-address">
+                            <div class="w3-panel w3-center w3-margin-top" style="font-weight: bolder;text-decoration: underline;" >The default Address below will be used for shippment</div>
+                             <p style="font-weight: bold;" class="w3-border">ERICK NDERITU <br>
+                               P.O BOX 123,<br>
+                              KAKAMEGA,<br>
+                              254727895935  </p>
+
+                              <button class="w3-btn w3-center w3-margin-bottom w3-round-large w3-orange w3-text-black">Select A Different Address</button>
+                        </div>
+                            <button id="pickupSelector" class="w3-btn w3-round-large w3-center w3-margin-top w3-black w3-text-white w3-margin-bottom ">Use a Pick Up station Instead</button>
+
+
+                            <div class="totalAmount">
+                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges : </p>
+                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span> :</p>
+                                <p style="text-decoration: underline;font-weight: bold;">Vat :</p>
+                            </div>
+
+
+                            <button id="addressOkay" class="w3-btn w3-margin-bottom w3-green w3-text-black w3-round-xlarge w3-center w3-hover-black w3-hover-text-green checkoutProceed">Proceed To Payment</button>
+
+
+                    </div>
+
+                     <!-- payment -->
+                      <div  style="display: none;" id='paym_opt'>
+                        <div class="w3-card-2" id="payForm">
+                            <div  class="w3-center w3-margin-top ">Pay with Mpesa</div>
+                            <div class="w3-small w3-center w3-pale-red w3-center w3-margin-top">NOTE :: To protect both our merchants and YOU as a consumer,we curently only accept MPESA payments</div>
+
+                            <form id="paymentForm" action="#" method="post" class="w3-margin-top w3-border w3-padding-16">
+                                <label for="phone">Enter you Mpesa Number</label>
+                                <input type="number" placeholder="0727895935" name="phone" class="w3-margin-bottom w3-input w3-center" id="phone">
+                                <button type="submit" class="w3-button w3-hover-black w3-hover-text-green w3-center w3-green w3-round-large w3-text-black">Proceed</button>
+                            </form>
+
+                            <div class="w3-panel w3-pale-green w3-center">
+                                An mpesa Prompt screen has been sent to your number  <span class="w3-large">(0727895935)</span>  .Check your Phone and Enter your Mpesa Pin to authorize the transaction and complete your purchase.
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% include 'eshopping/footer.html' %}
+                {%endblock%}
+</form>
+</body>
+</html>
