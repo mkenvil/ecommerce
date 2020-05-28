@@ -8,8 +8,8 @@
 
                     </div>
                     <div id="search-section" class="w3-col s8 m8 l4 ">
-                        <form action="#" method="get">
-                            <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
+                        <form action="{% url 'search' %}" method="GET" >
+                            <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom " type="search" name="Keywords" id="searchBar">
                         </form>
                     </div>
                     <div id="account-actions" class="l4 w3-col w3-round-xlarge">

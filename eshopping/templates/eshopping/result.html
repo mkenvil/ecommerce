@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{% static '/styles/w3.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/mobile-view.css' %}">
+     <link rel="stylesheet" href="{% static '/styles/large-screen.css' %}">
+     <link rel="stylesheet" href="{% static '/styles/large-screen.css' %} ">
+     <script defer src="{% static '/images/fontawesome-free-5.13.0-web/js/solid.js' %}"></script>
+     <script src="{% static '/images/fontawesome-free-5.13.0-web/js/fontawesome.js' %}"></script>
+     <script src="{% static '/scripts/script.js' %}"></script>
+</head>
+
+{% block content %}
+<body>
+<div id="page-wrapper">
+        <div id="content-wrapper">
+            <div id="sticky-content">
+                {% include 'eshopping/navbar.html' %}
+
+                <div id="categories-section" >
+                    <ul >
+                        <li style="cursor: pointer;"> <a href="{% url 'product_list' %}">All Categories</a> </li>
+                        <li style="cursor: pointer;"> <a href="{% url 'product_list' %}">Samsung</a></li>
+                        <li style="cursor: pointer;"><a href="{% url 'product_list' %}">Oppo</a></li>
+                        <li style="cursor: pointer;"><a href="{% url 'product_list' %}">Tecno</a> </li>
+                        <li style="cursor: pointer;"><a href="{% url 'product_list' %}">Laptops</a></li>
+                        <li style="cursor: pointer;"><a href="{% url 'product_list' %}">Laptop Accessories</a></li>
+                    </ul>
+                </div>
+
+                    <h1> YOUR SEARCH RESULT FOR: {{Keywords}}</h1>
+                        {% if item %}
+                        {% for item_found in item %}
+                            {{item_found.display_image}}
+                            {{item_found.product_name}}
+                            {{item_found.price}}
+                        {%endfor%}
+                        {%endif%}
+
+
+
+
+                    </div>
+                </div>
+            </div>
+                {% include 'eshopping/footer.html' %}
+        </div>
+    </div>
+</div>
+
+ </body>
+ {%endblock%}
+

@@ -20,6 +20,19 @@ def indexPage(request, ):
     context = {'items': items}
     return render(request, 'eshopping/index.html', context)
 
+def search(request):
+    if request.method == 'GET':
+        Keywords = request.GET.get('Keywords')
+        item = Products.objects.filter(product_name__icontains=Keywords)
+        context = {'item': item, 'Keywords': Keywords}
+        return render(request, 'eshopping/result.html', context)
+    else:
+        return redirect('home')
+
+
+def result(request):
+    context = {}
+    return render(request, 'eshopping/result.html', context)
 def aboutPage(request):
     context = {}
     return render(request, 'eshopping/about.html', context)
