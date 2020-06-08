@@ -21,9 +21,9 @@
                    <div class="w3-row" style="width:80%;margin-left: 10%;" >
                        {% for detail in detail %}
                     <div class="product-images w3-col s12 l2">
-                        <img class="image-prev" src="{% static '{{detail.view_image.url}}' %}" alt="Phantom 9">
-                        <img class="image-prev" src="{% static '{{detail.view_image.url}}' %}" alt="Phantom 9">
-                        <img class="image-prev" src="{% static '{{detail.view_image.url}}' %}" alt="Phantom 9">
+                        <img class="image-prev" src="{{detail.view_image.url}}" alt="{{detail.product_name}}">
+                        <img class="image-prev" src="{{detail.view_image.url}}" alt="{{detail.product_name}}">
+                        <img class="image-prev" src="{{detail.view_image.url}}" alt="{{detail.product_name}}">
                     </div>
                     <div  class="w3-col l10 w3-wheat" id="magnify-prod-image">
                         <img id='preview-magnified' src="{% static '{{detail.view_image.url}}' %}" alt="A50">

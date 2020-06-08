@@ -282,7 +282,7 @@ def remove_single_item_from_cart(request, pk):
         messages.info(request, "You don't have an order")
         return redirect('home')
 
-
+@login_required(login_url='authenticate')
 def add_to_favourite(request, pk):
     favorite_item = get_object_or_404(Products, pk=pk)
     favs, created = Favorites.objects.get_or_create(

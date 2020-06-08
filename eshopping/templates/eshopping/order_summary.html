@@ -86,7 +86,7 @@
                                 {%for order_item in object.items.all%}
                                 <div class="w3-hide" id="unitPriceSM13">{{order_item.item.price}}</div>
                                  <div class="w3-col s4 w3-center l5 cart-item-desc">
-                                     <img src="{% static '{{ordered_item.item.display_image}}' %}" alt="s2"><br>
+                                     <img src="{{order_item.item.display_image.url}}" alt="{{order_item.item.product_name}}"><br>
                                      <span class="cart-item-title w3-small">{{order_item.item.product_name}} </span> <br>
                                      <span class="w3-small w3-text-green" style="font-weight: bold;">Kes {{order_item.item.price}}</span>
                                  </div>

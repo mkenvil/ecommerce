@@ -21,7 +21,7 @@
             <div id="sticky-content">
                 {% include 'eshopping/navbar.html' %}
 
-                <div id="categories-section" >
+                <div id="categories-section" class="active" >
                     <ul >
                         <li style="cursor: pointer;"> <a href="{% url 'product_list' %}">All Categories</a> </li>
                         <li style="cursor: pointer;"> <a href="{% url 'product_list' %}">Samsung</a></li>
@@ -38,14 +38,17 @@
                 <button class="w3-black w3-large w3-round-xlarge w3-display-right">> </button>
             </div>
             <div id="highlight-section" class="w3-row">
-                <div class="w3-col s6 w3-border w3-border-gray" id="new-arrivals">
-                    <div class="w3-panel w3-center" style="text-decoration:underline;font-weight: bold;"> New Arrivals <i style="color: green;" class="fas fa-star"></i> </div>
-                            {% for item in items %}
-                        <div class="w3-row">
-                            <div class="w3-card-2 w3-col s12 m6 product-item l6 w3-hover-pale-yellow">
 
+                <div class="w3-col s6 w3-border w3-border-gray" id="new-arrivals">
+
+                    <div class="w3-panel w3-center" style="text-decoration:underline;font-weight: bold;"> New Arrivals <i style="color: green;" class="fas fa-star"></i> </div>
+
+                        <div class="w3-row">
+
+                            <div class="w3-card-2 w3-col s12 m6 product-item l6 w3-hover-pale-yellow">
+                                    {% for item in items %}
                                 <a href="{{item.get_absolute_url}}">
-                                <img src="{% static '{{item.display_image.url}}' %}" alt="{{item.product_name}} " >
+                                <img src="{{item.display_image.url}}" alt="{{item.product_name}} " >
                                 </a>
 
                                  <div class="w3-panel">

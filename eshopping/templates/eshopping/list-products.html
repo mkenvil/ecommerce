@@ -39,13 +39,15 @@
                 <div class="w3-row w3-margin-bottom ">
                     <div class="w3-col s4 m3 l3 product-item w3-border">
                         {% for item in items %}
-                       <img src="{% static '{{item.display_image.url}}' %}" class="w3-margin-top" alt="A50">
+                       <img src="{{item.display_image.url}}" class="w3-margin-top" alt="{{item.product_name}}">
                         <div class="w3-panel item-cat-overview" >
                            <span class="w3-small item-cat-title">{{item.product_name}} <i class="fas favo-icon fa-bookmark"></i> </span> <br>
                            <span class="new-price w3-small"> Kes {{item.price}}<br></span>
                            <span class="prev-price w3-small" ><strike></strike><br></span>
-                           <button class="w3-button w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                       </div>
+                            <a href="{{item.get_add_to_cart_url}}">
+                                <button class="w3-border w3-hover-green w3-hover-text-black  w3-btn w3-border-green ">Add To Cart <i class="fas fa-shopping-cart  w3-text-green"></i> </button>
+                            </a>
+                           </div>
                         {% endfor %}
                        </div>
                        <div class="w3-col s4 m3 l3  product-item w3-border">

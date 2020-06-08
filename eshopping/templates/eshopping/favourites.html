@@ -22,7 +22,7 @@
                         <div class="w3-row w3-card-2 w3-margin-top  w3-padding-24 w3-center">
                             {% for favorites in favorites %}
                             <div class="w3-col s4 w3-center l4 cart-item-desc">
-                                <img src="{% static 'favorites.favorite_item.display_image' %}" alt="s2"><br>
+                                <img src="{{favorites.favorite_item.display_image.url}}" alt="{{favorites.favorite_item.product_name}}"><br>
                                 <span class="cart-item-title w3-small">{{favorites.favorite_item.product_name}}</span>
                             </div>
                             <div class="w3-col s4 l4 w3-text-green cart-item-desc">
