@@ -84,7 +84,7 @@
                          <div class="cart-section w3-margin-top">
                             <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
                                 {%for order_item in object.items.all%}
-                                <div class="w3-hide" id="unitPriceSM13">{{order_item.item.price}}</div>
+                                <div class="w3-hide" id="unitPriceSM13">Kes {{order_item.item.price}}</div>
                                  <div class="w3-col s4 w3-center l5 cart-item-desc">
                                      <img src="{{order_item.item.display_image.url}}" alt="{{order_item.item.product_name}}"><br>
                                      <span class="cart-item-title w3-small">{{order_item.item.product_name}} </span> <br>
@@ -149,23 +149,6 @@
 
 
                             </div>
-                            <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
-                                <div class="w3-hide" id="unitPriceSM14">17000</div>
-                                <div class="w3-col s4 w3-center l5 cart-item-desc">
-                                    <img src="{% static '/images/Samsung/A50.jpg' %}" alt="s2"><br>
-                                    <span class="cart-item-title w3-small">Samsung A50</span> <br>
-                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 17000</span>
-
-                                </div>
-
-                               </div>
-                               <div class="w3-col s3 l2 cart-item-desc">
-                                 <i class="fas delete-icon fa-trash w3-center"></i>
-                               </div>
-
-                               <div class="w3-col s3 l3 w3-center cart-item-desc">
-                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM14">17000</span></span>
-                               </div>
 
 
                             </div>
@@ -178,8 +161,10 @@
                                  <button id="cartOkay" class="w3-button w3-margin-bottom w3-green w3-text-black w3-margin-top w3-round-xlarge w3-center w3-hover-black w3-hover-text-green cartProceed">Continue Shopping</button>
                              </a>
 
+                                <a href="{%url 'checkout'%}">
+                                    <button id="cartOkay" class="w3-button w3-margin-bottom w3-green w3-text-black w3-margin-top w3-round-xlarge w3-center w3-hover-black w3-hover-text-green cartProceed">Proceed To Checkout</button>
 
-                            <button id="cartOkay" class="w3-button w3-margin-bottom w3-green w3-text-black w3-margin-top w3-round-xlarge w3-center w3-hover-black w3-hover-text-green cartProceed">Proceed To Checkout</button>
+                                </a>
                                 {%endif%}
                         </div>
                      </div>
@@ -202,8 +187,8 @@
 
 
                             <div class="totalAmount">
-                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges : </p>
-                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span> :</p>
+                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges:  </p>
+                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span>: </p>
                                 <p style="text-decoration: underline;font-weight: bold;">Vat :</p>
                             </div>
 

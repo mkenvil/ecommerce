@@ -67,26 +67,37 @@
                      </div>
 
                       <!-- address  -->
-                        <div id="delivery-address" style="display: none;" class="address-select w3-card w3-border-right w3-border-left w3-border-bottom w3-border-black">
+                        <div id="delivery-address" style="display: ;" class="address-select w3-card w3-border-right w3-border-left w3-border-bottom w3-border-black">
                         <div class="w3-panel w3-border w3-center">Delivery Address</div>
 
 
                         <div id="primary-address">
                             <div class="w3-panel w3-center w3-margin-top" style="font-weight: bolder;text-decoration: underline;" >The default Address below will be used for shippment</div>
-                             <p style="font-weight: bold;" class="w3-border">ERICK NDERITU <br>
-                               P.O BOX 123,<br>
-                              KAKAMEGA,<br>
-                              254727895935  </p>
+                            {% for display_address in display_address %}
+                             <p style="font-weight: bold;" class="w3-border"> {{ display_address.Addressname }}, <br>
+                              {{ display_address.office_box }},<br>
+                              {{ display_address.location }},<br>
+                              {{ display_address.telephone }}, </p>
+                            {% endfor %}
 
-                              <button class="w3-btn w3-center w3-margin-bottom w3-round-large w3-orange w3-text-black">Select A Different Address</button>
+
+
+                                <a href="{% url 'add_address' %}">
+                                    <button class="w3-btn w3-center w3-margin-bottom w3-round-large w3-orange w3-text-black">Select A Different Address</button>
+
+                                </a>
                         </div>
                             <button id="pickupSelector" class="w3-btn w3-round-large w3-center w3-margin-top w3-black w3-text-white w3-margin-bottom ">Use a Pick Up station Instead</button>
 
 
                             <div class="totalAmount">
-                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges : </p>
-                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span> :</p>
-                                <p style="text-decoration: underline;font-weight: bold;">Vat :</p>
+                                {%for  total_checkout in total_checkout %}
+                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges : {{total_checkout.get_total_shipping}} </p>
+                                <p style="text-decoration: underline;font-weight: bold;">Vat :{{total_checkout.get_total_vat}}</p>
+                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span> :{{total_checkout.get_total_checkout_amount}}  </p>
+                                {% endfor %}
+
+
                             </div>
 
 
@@ -96,7 +107,7 @@
                     </div>
 
                      <!-- payment -->
-                      <div  style="display: none;" id='paym_opt'>
+                      <div  style="display: ;" id='paym_opt'>
                         <div class="w3-card-2" id="payForm">
                             <div  class="w3-center w3-margin-top ">Pay with Mpesa</div>
                             <div class="w3-small w3-center w3-pale-red w3-center w3-margin-top">NOTE :: To protect both our merchants and YOU as a consumer,we curently only accept MPESA payments</div>

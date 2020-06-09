@@ -128,9 +128,11 @@ def account_recoveryPage(request):
 
 @login_required(login_url='authenticate')
 def checkoutPage(request):
-    context = {}
-    return render(request, 'eshopping/checkout.html', context)
+    display_address = Address.objects.filter(user=request.user.customer)
+    total_checkout = Orders.objects.filter(user=request.user.customer, ordered=False)
 
+    context = {'display_address': display_address, 'total_checkout': total_checkout }
+    return render(request, 'eshopping/checkout.html', context)
 
 class OrderSummaryView(View):
     def get(self, *args, **kwargs):

@@ -4,12 +4,14 @@ from django.urls import reverse
 
 # Create your models here.
 
+
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     customer_name = models.CharField(max_length=100, null=True)
     profile_pic = models.ImageField(default='usericon.png',height_field=None, width_field=None, max_length=100, blank=True)
     phone = models.IntegerField(null=True)
     email = models.EmailField(null=True)
+
     class Meta:
         verbose_name_plural = 'Customer'
 
@@ -35,6 +37,8 @@ class Products(models.Model):
     view_image = models.ImageField(height_field=None, width_field=None, max_length=100, null=True, blank=True)
     description = models.TextField(max_length=500, blank=False, null=True)
     shipping_details = models.CharField(max_length=200, null=True)
+    shipping_charge = models.DecimalField(max_digits=10000000, decimal_places=2, null=True)
+    vat = models.DecimalField(max_digits=10000000, decimal_places=2, null=True)
 
 
 
@@ -80,7 +84,7 @@ class Favorites(models.Model):
 class OrderItem(models.Model):
     user = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
     ordered = models.BooleanField(default=False)
-    item = models.ForeignKey(Products, on_delete=models.CASCADE, null=True )
+    item = models.ForeignKey(Products, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
@@ -96,6 +100,18 @@ class OrderItem(models.Model):
         if self.item.discount_price:
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
+
+    def get_shipping_price(self):
+        return self.item.shipping_charge
+
+    def get_vat_price(self):
+        return self.item.vat
+
+    def get_add_expenses(self):
+        return self.item.shipping_charge + self.item.vat
+
+    def get_checkout_price(self):
+        return self.get_final_price() + self.get_add_expenses()
 
 
 
@@ -125,6 +141,25 @@ class Orders(models.Model):
             total += order_item.get_final_price()
         return total
 
+    def get_total_shipping(self):
+        total = 0
+        for order_item in self.items.all():
+            total += order_item.get_shipping_price()
+        return total
+
+    def get_total_vat(self):
+        vat = 0
+        for order_item in self.items.all():
+            vat += order_item.get_vat_price()
+        return vat
+
+    def get_total_checkout_amount(self):
+        total_amount = 0
+        for order_item in self.items.all():
+            total_amount += order_item.get_checkout_price()
+        return total_amount
+
+
 class Address(models.Model):
     user = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
     Addressname = models.CharField(max_length=50, default='home')
@@ -150,6 +185,24 @@ class Checkout(models.Model):
 
     def __str__(self):
         return self.customer.customer_name
+
+
+class Seller(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    seller_name = models.CharField(max_length=200, default='Unknown', blank=False)
+    seller_category = models.CharField(max_length=150, null=True)
+    seller_contact = models.IntegerField(null=True, blank=True)
+    seller_email = models.EmailField(null=True)
+    seller_location = models.CharField(max_length=200, null=True)
+    seller_description = models.TextField(null=True)
+    seller_product = models.ManyToManyField(Products)
+
+    class Meta:
+        verbose_name_plural = 'Seller'
+
+    def __str__(self):
+        return str(self.seller_name)
+
 
 
 
