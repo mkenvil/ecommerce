@@ -24,7 +24,9 @@
                             {{ show_address.telephone }} . <br>
                             </p>
 
-                             <div class="actbtn w3-btn w3-border w3-pale-green w3-text-black w3-border">Default Selected</div>
+                            <a href="{% url 'checkout' %}">
+                                <div class="actbtn w3-btn w3-border w3-pale-green w3-text-black w3-border">Default Selected</div>
+                            </a>
                             <a href="{% url 'delete_address' %}">
                              <div class="actbtn w3-btn w3-border w3-text-red w3-border">Delete Address</div>
                                 </a>
@@ -34,39 +36,7 @@
 
 
                         </div>
-                        <div class="address-loc w3-card-2 w3-margin-top w3-margin-top">
-                            <p>
-                             Mitchelle Wanjiru <br>
-                             P.O BOX 456 <br>
-                             NAIROBI <br>
-                             254729093444. <br>
-                            </p>
 
-                            <div class="actbtn w3-btn w3-border w3-text-green ">Select as Default</div>
-                             <div class="actbtn w3-btn w3-border w3-text-red ">Delete Address</div>
-
-                         </div>
-                     <div class="address-loc w3-card-2 w3-margin-top w3-margin-top">
-                         <p>
-                             JOE DOE <br>
-                             P.O BOX 123 <br>
-                             KAKAMEGA <br>
-                             254724144002. <br>
-                         </p>
-
-                         <div class="actbtn w3-btn w3-border w3-text-green ">Select as Default</div>
-                            <div class="actbtn w3-btn w3-border w3-text-red ">Delete Address</div>
-
-                     </div>
-
-                  <button id="add-new-address" class="w3-btn w3-margin-bottom w3-round-large add-address-btn w3-black w3-text-green w3-margin-top w3-center">
-                      <a href="{% url 'add_address'%}">
-                          Add Address
-                      </a>
-                  </button>
-
-
-                    </div>
 
                         <form action="POST" class="w3-card-2 " style="display: none;" id="add-address">
 

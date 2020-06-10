@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{% static '/styles/mobile-view.css' %}">
      <link rel="stylesheet" href="{% static '/styles/large-screen.css' %}">
      <link rel="stylesheet" href="{% static '/styles/large-screen.css' %} ">
-     <script defer src="{% static '/images/fontawesome-free-5.13.0-web/js/solid.js' %}"></script>
-     <script src="{% static '/images/fontawesome-free-5.13.0-web/js/fontawesome.js' %}"></script>
+     <script defer src="{% static '/fontawesome-free-5.13.0-web/js/solid.js' %}"></script>
+     <script src="{% static '/fontawesome-free-5.13.0-web/js/fontawesome.js' %}"></script>
      <script src="{% static '/scripts/script.js' %}"></script>
 </head>
 
@@ -74,29 +74,30 @@
                     <div class="w3-panel   w3-center" style="text-decoration:underline;font-weight: bold;">Top Deals <i style="color: orange;" class="fas fa-fire"></i> </div>
                     <div class="w3-row">
                         <div class="w3-card-2 w3-col s12 m6 l6 w3-hover-pale-yellow">
-                                <img src="{% static '/images/Samsung/J7.jpg' %}" alt="J7" >
+
+
+                            {% for discount_items in discount_items %}
+                            {% if discount_items.discount_price %}
+                                <img src="{{discount_items.display_image.url}}" alt="{{discount_items.product_name}}" >
                             </a>
 
                              <div class="w3-panel">
-                                <span class="w3-small item-cat-title"> Samsung J7 <i class="fas favo-icon  fa-bookmark" style="color:darkgoldenrod;"></i> </span> <br>
-                                 <span class="new-price w3-small"> Kes 24,999<br></span>
-                                 <span class="prev-price w3-small"><strike>Kes 29,999</strike><br></span>
-                                 <button class="w3-button w3-hover-green w3-hover-text-black w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <span class="w3-small item-cat-title"> {{discount_items.product_name}} <i class="fas favo-icon  fa-bookmark" style="color:darkgoldenrod;"></i> </span> <br>
+                                 <span class="new-price w3-small"> Kes {{discount_items.discount_price}}<br></span>
+                                 <span class="prev-price w3-small"><strike>Kes {{discount_items.price}}</strike><br></span>
+
+                                 <a href="{{discount_items.get_add_to_cart_url}}">
+                                         <button class="w3-border w3-hover-green w3-hover-text-black  w3-btn w3-border-green ">Add To Cart <i class="fas fa-shopping-cart  w3-text-green"></i> </button>
+                                    </a>
+
+                                     <a href="{{discount_items.get_add_to_favourite_url}}">
+                                         <button class="w3-border w3-hover-green w3-hover-text-black  w3-btn w3-border-green ">Add To Favorite <i class="fas fa-heart  w3-text-green"></i> </button>
+                                    </a>
 
                              </div>
+                            {% endif %}
+                            {% endfor %}
                         </div>
-                        <div class="w3-card-2 w3-col s12 l6 m6 w3-hover-pale-yellow" >
-                            <img src="{% static '/images/Tecno/pop 3.jpg' %}" alt="Pop 3" >
-                            </a>
-                             <div class="w3-panel">
-                                <span class="w3-small item-cat-title">Tecno Pop 3<i class="fas favo-icon  fa-bookmark" style="color:darkgoldenrod;"></i></span> <br>
-                                 <span class="new-price w3-small">Kes 7,999<br></span>
-                                 <span class="prev-price w3-small"> <strike>Kes 9,999</strike><br></span>
-                                 <button class="w3-button w3-hover-green w3-hover-text-black w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-
-                             </div>
-                        </div>
-
 
                     </div>
                 </div>

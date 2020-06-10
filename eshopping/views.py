@@ -16,8 +16,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
 def indexPage(request, ):
     items = Products.objects.all()
+    discount_items = Products.objects.all()
 
-    context = {'items': items}
+    context = {'items': items, 'discount_items': discount_items}
     return render(request, 'eshopping/index.html', context)
 
 def search(request):
@@ -166,7 +167,9 @@ def favoritesPage(request):
 
 def products_listPage(request):
     items =Products.objects.all()
-    context = {'items':items}
+    count = Products.objects.all().count()
+
+    context = {'items':items , 'count': count}
     return render(request, 'eshopping/list-products.html', context)
 
 @login_required(login_url='authenticate')
